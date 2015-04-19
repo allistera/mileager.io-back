@@ -1,7 +1,7 @@
 # Car Mileager - API
 Current Master Build: http://www.carmileager.com/
 
-[ ![Codeship Status for allistera/car_mileager](https://codeship.com/projects/00bab350-7324-0132-8d73-363e0537735d/status?branch=master)](https://codeship.com/projects/54887)
+[ ![Codeship Status for allistera/car_mileager_api](https://codeship.com/projects/e4e722a0-c8cd-0132-6c0f-1e9b8d507ee8/status?branch=master)](https://codeship.com/projects/75124)
 
 [![Stories in Ready](https://badge.waffle.io/allistera/car_mileager.png?label=ready&title=Ready)](https://waffle.io/allistera/car_mileager)
 
