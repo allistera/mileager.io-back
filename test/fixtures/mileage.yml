@@ -1,0 +1,24 @@
+FirstEntry:
+    date: 2014-10-01
+    amount: 500
+    user_id: 1
+SecondEntry:
+    date: 2014-11-01
+    amount: 800
+    user_id: 1
+ThirdEntry:
+    date: 2014-12-01
+    amount: 1200
+    user_id: 1
+ThirdEntry:
+    date: 2014-12-08
+    amount: 1400
+    user_id: 1
+ForthEntry:
+    date: 2015-01-08
+    amount: 1600
+    user_id: 1
+FifthEntry:
+    date: 2015-04-08
+    amount: 2800
+    user_id: 1
