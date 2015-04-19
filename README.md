@@ -1,5 +1,11 @@
 # Car Mileager - API
-Current Master Build: http://www.carmileager.com/
+
+This repo is currently not used in production, it is the API component of the future move from a full Ruby on Rails application to a Ember.js front end, Rails API backend application.
+
+The current production application can be found here:
+http://www.carmileager.com/
+
+Current Master Build of API: http://car-mileager-api.herokuapp.com
 
 [ ![Codeship Status for allistera/car_mileager_api](https://codeship.com/projects/e4e722a0-c8cd-0132-6c0f-1e9b8d507ee8/status?branch=master)](https://codeship.com/projects/75124)
 
