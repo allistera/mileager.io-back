@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'application#index'
+
   mount_devise_token_auth_for 'User', at: 'auth'
 
   namespace :v1 do
