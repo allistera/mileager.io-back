@@ -5,7 +5,7 @@ module V1
   # Settings controller
   #
   class SettingsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user_from_token!
 
     def update
       params[:settings].each do |n, v|

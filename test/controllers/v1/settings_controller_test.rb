@@ -11,8 +11,7 @@ module V1
     include Devise::TestHelpers
 
     setup do
-      @user = User.first
-      request.headers.merge!(@user.create_new_auth_token)
+      @request.headers["Authorization"] = %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}
     end
 
     test 'should update settings' do
