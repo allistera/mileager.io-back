@@ -10,7 +10,7 @@ module V1
   class MileageFlowsTest < ActionDispatch::IntegrationTest
     setup do
       @user = User.first
-      @auth_headers = @user.create_new_auth_token
+      @auth_headers = {Authorization: %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}}
     end
 
     test 'should get all mileage entries' do

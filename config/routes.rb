@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: { sessions: 'users/sessions' }, defaults: { format: :json }
   root 'application#index'
-
-  mount_devise_token_auth_for 'User', at: 'auth'
 
   namespace :v1 do
     get 'mileages' => 'mileages#index'
