@@ -16,7 +16,7 @@ module V1
     test 'should get all mileage entries' do
       get '/v1/mileages', {}, @auth_headers
       assert_response :success
-      assert_equal JSON.parse(body).count, 5
+      assert_equal JSON.parse(body)['mileages'].count, 5
     end
 
     test 'should get monthly entries in correct format' do
@@ -35,7 +35,8 @@ module V1
       get '/v1/mileages/graph_data', {}, @auth_headers
       assert_response :success
 
-      parsed_response = JSON.parse(body).first
+      parsed_response = JSON.parse(body)['mileages'].first
+
 
       assert_equal parsed_response.count, 3
       assert_equal parsed_response['labels'].third, 'October'
@@ -59,7 +60,7 @@ module V1
 
     test 'should delete mileage entry' do
       assert_difference('Mileage.count', -1) do
-        delete '/v1/mileages', { id: Mileage.last.id }, @auth_headers
+        delete "/v1/mileages/#{Mileage.last.id}", {}, @auth_headers
       end
     end
   end
