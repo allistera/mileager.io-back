@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'mileages/graph_data' => 'mileages#graph_data'
     get 'mileages/monthly' => 'mileages#monthly'
     post 'mileages' => 'mileages#create'
-    delete 'mileages' => 'mileages#delete'
+    delete 'mileages/:id' => 'mileages#delete'
 
     put 'settings/update' => 'settings#update'
   end
