@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_filter :authenticate_user_from_token!, except: ['index']
-
+  respond_to :json
 
   def index
     render json: 'Welcome to CarMileager API', status: :ok
@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
   private
 
   def populate_settings
-    @STARTING_MONTH = '01-Jan-2015'
+    @STARTING_MONTH = '01-Jan-2014'
     @YEARLY_MILEAGE = 10_000
     @STARTING_MILEAGE = 0
-    @DURATION = 12
+    @DURATION = 24
 
     settings = Setting.where(user_id: current_user.id)
 

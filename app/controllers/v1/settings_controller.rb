@@ -7,6 +7,10 @@ module V1
   class SettingsController < ApplicationController
     before_action :authenticate_user_from_token!
 
+    def index
+      render json: Setting.where(user_id: current_user.id).select('id', 'name', 'value')
+    end
+
     def update
       params[:settings].each do |n, v|
         return unless Setting.update_setting(current_user.id, n, v)
@@ -16,7 +20,7 @@ module V1
         User.find(current_user.id).update_attribute('walkthrough', false)
       end
 
-      render json: 'Settings where successfully updated.', status: :ok
+      render json: {}, status: :ok
     end
   end
 end
