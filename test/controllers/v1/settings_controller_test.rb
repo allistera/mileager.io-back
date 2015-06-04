@@ -18,5 +18,10 @@ module V1
       put :update, settings: { YEARLY_MILEAGE: 12_000, STARTING_MILEAGE: 45 }
       assert_response :success
     end
+
+    test 'should get all settings' do
+      get :index
+      assert_response :success
+    end
   end
 end
