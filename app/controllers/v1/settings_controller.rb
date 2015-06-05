@@ -8,7 +8,7 @@ module V1
     before_action :authenticate_user_from_token!
 
     def index
-      render json: Setting.where(user_id: current_user.id).select('id', 'name', 'value')
+      render json: Setting.where(user_id: current_user.id)
     end
 
     def update
