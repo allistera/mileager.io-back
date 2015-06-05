@@ -13,11 +13,6 @@ class ApplicationController < ActionController::Base
   private
 
   def populate_settings
-    @STARTING_MONTH = '01-Jan-2014'
-    @YEARLY_MILEAGE = 10_000
-    @STARTING_MILEAGE = 0
-    @DURATION = 24
-
     settings = Setting.where(user_id: current_user.id)
 
     settings.each do |setting|

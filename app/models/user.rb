@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
           :trackable, :validatable
 
+   after_create :create_settings
    before_save :ensure_authentication_token
 
    def ensure_authentication_token
@@ -24,4 +25,7 @@ class User < ActiveRecord::Base
      end
    end
 
+   def create_settings
+    Setting.create_for_user(id)
+   end
 end
