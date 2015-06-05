@@ -2,10 +2,10 @@
 # User model
 #
 class User < ActiveRecord::Base
-# Include default devise modules. Others available are:
-# :confirmable, :lockable, :timeoutable and :omniauthable
-devise :database_authenticatable, :registerable,
-        :trackable, :validatable
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :trackable, :validatable
 
   after_create :create_settings
   before_save :ensure_authentication_token
