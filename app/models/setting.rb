@@ -2,7 +2,6 @@
 # Setting model
 #
 class Setting < ActiveRecord::Base
-
   valid_name_entries = %w(STARTING_MONTH
                           YEARLY_MILEAGE
                           STARTING_MILEAGE
@@ -23,17 +22,15 @@ class Setting < ActiveRecord::Base
   end
 
   def self.create_for_user(user_id)
-
     defaults = {
-      STARTING_MONTH: '01-' + Time.now.strftime("%m-%Y").to_s,
+      STARTING_MONTH: "01-" + Time.now.strftime("%m-%Y").to_s,
       YEARLY_MILEAGE: 10_000,
       STARTING_MILEAGE: 0,
       DURATION: 24
     }
 
-    defaults.each { |setting, value| 
+    defaults.each do |setting, value|
       Setting.create(user_id: user_id, name: setting, value: value)
-    }
+    end
   end
 end
-
