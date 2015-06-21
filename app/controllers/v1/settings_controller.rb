@@ -8,19 +8,8 @@ module V1
     before_action :authenticate_user_from_token!
 
     def index
-      render json: Setting.where(user_id: current_user.id)
+      render json: User.where(id: current_user.id).select('starting_date', 'term_length', 'yearly_mileage', 'starting_mileage')
     end
 
-    def update
-      params[:settings].each do |n, v|
-        return unless Setting.update_setting(current_user.id, n, v)
-      end
-
-      if params[:users].present?
-        User.find(current_user.id).update_attribute('walkthrough', false)
-      end
-
-      render json: {}, status: :ok
-    end
   end
 end

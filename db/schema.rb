@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509142815) do
+ActiveRecord::Schema.define(version: 20150617195722) do
 
   create_table "mileages", force: :cascade do |t|
     t.date     "date"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20150509142815) do
     t.string   "last_sign_in_ip"
     t.boolean  "walkthrough",            default: true
     t.string   "authentication_token"
+    t.date     "starting_date"
+    t.string   "term_length"
+    t.string   "yearly_mileage"
+    t.string   "starting_mileage"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

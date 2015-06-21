@@ -1,7 +1,7 @@
 class MileageCalculator
 
-  def self.labels(starting_month)
-    date_from  = Date.parse(starting_month)
+  def self.labels(date_from)
+    date_from = date_from.to_datetime
     date_to    = date_from.to_time.advance(months: 11).to_date
     date_range = date_from..date_to
 
@@ -23,11 +23,10 @@ class MileageCalculator
   end
 
   def self.actual(user_id, term_length, starting_date)
-    starting_date = Date.parse(starting_date)
 
     mileages = Mileage.where(user_id: user_id).order(:date).group_by { |mile| mile.date.end_of_month }
 
-    results = ((starting_date)..starting_date + (term_length - 1).months).map{|d| [d.year, d.month ]}.uniq
+    results = ((starting_date.to_datetime)..starting_date.to_datetime + (term_length - 1).months).map{|d| [d.year, d.month ]}.uniq
 
     mileages.sort.each do |date, data|
       pos = results.index([date.year, date.month])

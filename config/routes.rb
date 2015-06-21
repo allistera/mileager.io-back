@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     post 'mileages' => 'mileages#create'
     delete "mileages/:id" => "mileages#delete"
 
-    put 'settings/update' => 'settings#update'
     get 'settings' => 'settings#index'
   end
 
