@@ -7,7 +7,8 @@ class Users::SessionsController < Devise::SessionsController
     super do |user|
       data = {
         token: user.authentication_token,
-        email: user.email
+        email: user.email,
+        walkthrough: user.walkthrough
       }
       render json: data, status: 201 and return
 

@@ -4,6 +4,10 @@ testuser1:
   encrypted_password: <%= Devise.bcrypt(User, 'password1') %>
   authentication_token: eMWzxCSpqs8APQ1sbLhz
   walkthrough: false
+  starting_date: 01-08-2014
+  term_length: 24
+  yearly_mileage: 12_000
+  starting_mileage: 0
 
 testuser12:
   id: 2

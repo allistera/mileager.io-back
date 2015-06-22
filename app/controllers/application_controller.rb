@@ -13,13 +13,11 @@ class ApplicationController < ActionController::Base
   private
 
   def populate_settings
-    settings = Setting.where(user_id: current_user.id)
-
-    settings.each do |setting|
-      unless setting.name.empty?
-        instance_variable_set("@#{setting.name}", setting.value)
-      end
-    end
+    settings = User.find_by_id(current_user.id)
+    @starting_month = settings.starting_date
+    @yearly_mileage = settings.yearly_mileage
+    @starting_mileage = settings.starting_mileage
+    @duration = settings.term_length
   end
 
   def authenticate_user_from_token!

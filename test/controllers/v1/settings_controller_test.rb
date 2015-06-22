@@ -14,8 +14,8 @@ module V1
       @request.headers["Authorization"] = %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}
     end
 
-    test 'should update settings' do
-      put :update, settings: { YEARLY_MILEAGE: 12_000, STARTING_MILEAGE: 45 }
+    test "should get all users settings" do
+      get :index
       assert_response :success
     end
 
