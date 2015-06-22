@@ -14,7 +14,9 @@ class CombineSettingsWithUsers < ActiveRecord::Migration
     }
 
     Setting.all.each do |post|
-      Setting.connection.execute("UPDATE users SET #{translation[post.name]} = '#{post.value}' WHERE id = #{post.user_id};")
+      Setting.connection.execute("UPDATE users SET " \
+        "#{translation[post.name]} = '#{post.value}' "\
+        "WHERE id = #{post.user_id};")
     end
   end
 

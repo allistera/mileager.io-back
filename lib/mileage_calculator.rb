@@ -34,6 +34,6 @@ class MileageCalculator
       results[pos] << data.last.amount
     end
 
-    results.flat_map  { |_, _, amount| amount || 0 }
+    results.flat_map { |_, _, amount| amount || 0 }
   end
 end
