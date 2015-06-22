@@ -26,16 +26,14 @@ class MileageCalculator
 
     mileages = Mileage.where(user_id: user_id).order(:date).group_by { |mile| mile.date.end_of_month }
 
-    results = ((starting_date.to_datetime)..starting_date.to_datetime + (term_length - 1).months).map{|d| [d.year, d.month ]}.uniq
+    results = ((starting_date.to_datetime)..starting_date.to_datetime +
+              (term_length - 1).months).map { |d| [d.year, d.month] }.uniq
 
     mileages.sort.each do |date, data|
       pos = results.index([date.year, date.month])
       results[pos] << data.last.amount
     end
 
-    results.flat_map  {|year, month, amount| amount || 0}
-
+    results.flat_map  { |_, _, amount| amount || 0 }
   end
-
-
 end

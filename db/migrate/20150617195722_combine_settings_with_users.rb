@@ -7,14 +7,14 @@ class CombineSettingsWithUsers < ActiveRecord::Migration
 
     # Port data from settings accross to the users row
     translation = {
-      'STARTING_MONTH' => 'starting_date',
-      'DURATION' => 'term_length',
-      'YEARLY_MILEAGE' => 'yearly_mileage',
-      'STARTING_MILEAGE' => 'starting_mileage'
+      "STARTING_MONTH" => "starting_date",
+      "DURATION" => "term_length",
+      "YEARLY_MILEAGE" => "yearly_mileage",
+      "STARTING_MILEAGE" => "starting_mileage"
     }
 
     Setting.all.each do |post|
-      Setting.connection.execute("UPDATE users SET #{translation[post.name]} = '#{post.value}' WHERE id = #{post.user_id}; ")
+      Setting.connection.execute("UPDATE users SET #{translation[post.name]} = '#{post.value}' WHERE id = #{post.user_id};")
     end
   end
 

@@ -14,7 +14,7 @@ module V1
       @request.headers["Authorization"] = %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}
     end
 
-    test 'should get all users settings' do
+    test "should get all users settings" do
       get :index
       assert_response :success
     end

@@ -20,15 +20,15 @@ module V1
     def graph_data
       render json: [
         labels:
-          MileageCalculator.labels(@STARTING_MONTH),
+          MileageCalculator.labels(@starting_month),
         expected:
-          MileageCalculator.expected(@YEARLY_MILEAGE,
-                                     @STARTING_MILEAGE,
-                                     @DURATION.to_i),
+          MileageCalculator.expected(@yearly_mileage,
+                                     @starting_mileage,
+                                     @duration.to_i),
         actual:
           MileageCalculator.actual(current_user.id,
-                                   @DURATION.to_i,
-                                   @STARTING_MONTH)
+                                   @duration.to_i,
+                                   @starting_month)
       ]
     end
 
@@ -50,10 +50,10 @@ module V1
     end
 
     def monthly
-      actual = MileageCalculator.actual(1, @DURATION.to_i, @STARTING_MONTH)
-      expected = MileageCalculator.expected(@YEARLY_MILEAGE, @STARTING_MILEAGE,
-                                            @DURATION.to_i)
-      labels = MileageCalculator.labels(@STARTING_MONTH)
+      actual = MileageCalculator.actual(1, @duration.to_i, @starting_month)
+      expected = MileageCalculator.expected(@yearly_mileage, @starting_mileage,
+                                            @duration.to_i)
+      labels = MileageCalculator.labels(@starting_month)
       current_months_position = labels.index Time.now.strftime('%B').to_s
       render json: { actual: actual, expected: expected, labels: labels,
                      current_months_position: current_months_position }

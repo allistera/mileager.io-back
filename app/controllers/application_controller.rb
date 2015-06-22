@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
 
   def populate_settings
     settings = User.find_by_id(current_user.id)
-    @STARTING_MONTH = settings.starting_date
-    @YEARLY_MILEAGE = settings.yearly_mileage
-    @STARTING_MILEAGE = settings.starting_mileage
-    @DURATION = settings.term_length
+    @starting_month = settings.starting_date
+    @yearly_mileage = settings.yearly_mileage
+    @starting_mileage = settings.starting_mileage
+    @duration = settings.term_length
   end
 
   def authenticate_user_from_token!
