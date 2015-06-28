@@ -14,5 +14,17 @@ module V1
                                                           "starting_mileage")
     end
 
+    def update
+      render json: User.find(current_user.id).update(settings_params)
+    end
+
+    private
+
+    def settings_params
+      params.require(:settings).permit(:starting_date,
+                                       :term_length,
+                                       :yearly_mileage,
+                                       :starting_mileage)
+    end
   end
 end

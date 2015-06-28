@@ -25,10 +25,10 @@ module V1
 
       parsed_response = JSON.parse(body)
 
-      assert_equal parsed_response.count, 4
-      assert_equal parsed_response['actual'].third, 500.0
-      assert_equal parsed_response['expected'].third, 3000
-      assert_equal parsed_response['labels'].third, 'October'
+      assert_equal 4, parsed_response.count, 4
+      assert_equal 500.0, parsed_response['actual'].third
+      assert_equal 3000, parsed_response['expected'].third
+      assert_equal 'October', parsed_response['labels'].third
     end
 
     test 'should get graph data in correct format' do
@@ -37,11 +37,10 @@ module V1
 
       parsed_response = JSON.parse(body)['mileages'].first
 
-
-      assert_equal parsed_response.count, 3
-      assert_equal parsed_response['labels'].third, 'October'
-      assert_equal parsed_response['expected'].third, 3000
-      assert_equal parsed_response['actual'].third, 500.0
+      assert_equal 3, parsed_response.count
+      assert_equal 'October', parsed_response['labels'].third
+      assert_equal 3000, parsed_response['expected'].third
+      assert_equal 500.0, parsed_response['actual'].third
     end
 
     test 'should create new mileage entry' do
