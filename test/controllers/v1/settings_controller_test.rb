@@ -18,5 +18,21 @@ module V1
       get :index
       assert_response :success
     end
+
+    test 'should update settings' do
+      post :update, settings: { starting_date: '09-09-2015',
+                               term_length: 48,
+                               yearly_mileage: 12_500,
+                               starting_mileage: 10 }
+
+      assert_response :success
+
+      user = User.find_by_email('testuser1@user.com')
+
+      assert_equal '09-09-2015',  user.starting_date.strftime('%d-%m-%Y')
+      assert_equal '48',  user.term_length
+      assert_equal '12500',  user.yearly_mileage
+      assert_equal '10',  user.starting_mileage
+    end
   end
 end
