@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     delete "mileages/:id" => "mileages#delete"
 
     get 'settings' => 'settings#index'
+    put 'settings' => 'settings#update'
   end
 
 end
