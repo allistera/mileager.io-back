@@ -18,9 +18,5 @@ module V1
       get :index
       assert_response :success
     end
-
-    test 'should update settings' do
-
-    end
   end
 end
