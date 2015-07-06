@@ -5,8 +5,6 @@ This repo is currently not used in production, it is the API component of the fu
 The current production application can be found here:
 http://api.mileager.io
 
-Current Master Build of API: http://car-mileager-api.herokuapp.com
-
 [ ![Codeship Status for allistera/car_mileager_api](https://codeship.com/projects/e4e722a0-c8cd-0132-6c0f-1e9b8d507ee8/status?branch=master)](https://codeship.com/projects/75124)
 
 [![Stories in Ready](https://badge.waffle.io/allistera/car_mileager.png?label=ready&title=Ready)](https://waffle.io/allistera/car_mileager)
