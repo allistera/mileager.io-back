@@ -1,9 +1,9 @@
-# Car Mileager - API
+# Mileager.io - Backend API
 
 This repo is currently not used in production, it is the API component of the future move from a full Ruby on Rails application to a Ember.js front end, Rails API backend application.
 
 The current production application can be found here:
-http://www.carmileager.com/
+http://api.mileager.io
 
 Current Master Build of API: http://car-mileager-api.herokuapp.com
 
