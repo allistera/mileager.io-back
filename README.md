@@ -1,9 +1,9 @@
-# Mileager.io - Backend API
+# Car Mileager - API
 
 This repo is currently not used in production, it is the API component of the future move from a full Ruby on Rails application to a Ember.js front end, Rails API backend application.
 
 The current production application can be found here:
-http://api.mileager.io
+http://www.carmileager.com/
 
 [ ![Codeship Status for allistera/car_mileager_api](https://codeship.com/projects/e4e722a0-c8cd-0132-6c0f-1e9b8d507ee8/status?branch=master)](https://codeship.com/projects/75124)
 
