@@ -50,7 +50,7 @@ module V1
     end
 
     def monthly
-      actual = MileageCalculator.actual(1, @duration.to_i, @starting_month)
+      actual = MileageCalculator.actual(current_user.id, @duration.to_i, @starting_month)
       expected = MileageCalculator.expected(@yearly_mileage, @starting_mileage,
                                             @duration.to_i)
       labels = MileageCalculator.labels(@starting_month)
