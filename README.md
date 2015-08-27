@@ -1,21 +1,22 @@
 # Mileager.io - Backend API
 
-This repo is currently not used in production, it is the API component of the future move from a full Ruby on Rails application to a Ember.js front end, Rails API backend application.
-
-The current production application can be found here:
-http://api.mileager.io
-
 [![Build
 Status](https://travis-ci.org/allistera/mileager.io-back.svg)](https://travis-ci.org/allistera/mileager.io-back)
 
-With more and more cars getting sold with mileage restrictions these days it can be hard to keep track your usage, and by going over this limit you can incur hefty fines. Car Mileager, an open source project aims to solve this issue, allowing users to easily visualise exactly how much mileage they have used, and have remaining.
+With more and more cars getting sold with mileage restrictions these days it can be hard to keep track your usage, and by going over this limit you can incur hefty fines. Mileager.io, an open source project aims to solve this issue, allowing users to easily visualise exactly how much mileage they have used, and have remaining.
+
+Current master branch:
+http://api.mileager.io
+
+Website:
+http://mileager.io
 
 ## Project Setup
 
-Car Mileager API is a Ruby on Rails application. to install it is as simple as:
+Mileager.io API is a Ruby on Rails application. to install it is as simple as:
 
-    $ git clone https://github.com/allistera/car_mileager_api
-    $ cd car_mileager
+    $ git clone https://github.com/allistera/mileager.io-back
+    $ cd mileager.io-back
     $ bundle install
 
 And to run:
@@ -26,30 +27,33 @@ You will need to have rails installed. Various guides can be found accross the i
 
 ## Architecture
 
-Car Mileager API uses the following technologies:
+Mileager.io API uses the following technologies:
 
 * Ruby on Rails
-* Slim templating engine
 * SQLite for testing and development
 * PostgreSQL for production
-* Minitest
+* Minitests
+* Token authentication using devise
 
 ## Testing
 
-Car Mileager uses out of the box MiniTest and Fixtures to keep it as light weight as possible. This is done on [purpose](https://twitter.com/AllisterAntosik/status/528168000898101248), sorry no rspec, factory girl or capybara
+Mileager.io uses out of the box MiniTest and Fixtures to keep it as light weight as possible. This is done on [purpose](https://twitter.com/AllisterAntosik/status/528168000898101248), sorry no rspec, factory girl or capybara
 
 Tests as well as Fixtures can be found in the /test directory.
 
 ## Deploying
 
-Once Codeship has been ran the master branch will be deployed to Heroku automatically.
+Once Travis-CI has been ran the master branch will be deployed to Heroku automatically.
 
-Note that although Car Mileager uses SQLite for development and testing, it is set up to use PostgreSQL in production.
+Note that although the Mileager.io API uses SQLite for development and testing, it is set up to use PostgreSQL in production.
 
 ## Contributing changes
 
 - To simplify things the [GitHub Flow](https://guides.github.com/introduction/flow/index.html) Git workflow is used
 - Google's [HTML/CSS Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml) is followed
+- [bbatsov/ruby-style-guide](https://github.com/bbatsov/ruby-style-guide)
+
+Hound will automatically check pull requests code style.
 
 ## License
 
