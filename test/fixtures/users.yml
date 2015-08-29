@@ -1,7 +1,7 @@
 testuser1:
   id: 1
   email: 'testuser1@user.com'
-  encrypted_password: <%= Devise.bcrypt(User, 'password1') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password1') %>
   authentication_token: eMWzxCSpqs8APQ1sbLhz
   walkthrough: false
   starting_date: 2014-08-01
@@ -12,13 +12,13 @@ testuser1:
 testuser12:
   id: 2
   email: 'testuser2@user.com'
-  encrypted_password: <%= Devise.bcrypt(User, 'password2') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password2') %>
   authentication_token: eMWzxCSpqs8APQ1sbLhf
   walkthrough: false
 
 testuser3:
   id: 3
   email: 'testuser3@user.com'
-  encrypted_password: <%= Devise.bcrypt(User, 'password3') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password3') %>
   authentication_token: eMWzxCSpqs8APQ1sbLh2
   walkthrough: true
