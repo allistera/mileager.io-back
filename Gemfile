@@ -49,9 +49,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry-byebug'
   gem 'awesome_print'
+  gem 'letter_opener'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'postmark-rails'
 end
