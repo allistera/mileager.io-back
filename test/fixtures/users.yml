@@ -8,6 +8,7 @@ testuser1:
   term_length: 24
   yearly_mileage: 12_000
   starting_mileage: 0
+  confirmed_at: 2014-08-01
 
 testuser12:
   id: 2
@@ -15,6 +16,7 @@ testuser12:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password2') %>
   authentication_token: eMWzxCSpqs8APQ1sbLhf
   walkthrough: false
+  confirmed_at: 2014-08-01
 
 testuser3:
   id: 3
@@ -22,3 +24,4 @@ testuser3:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password3') %>
   authentication_token: eMWzxCSpqs8APQ1sbLh2
   walkthrough: true
+  confirmed_at: 2014-08-01
