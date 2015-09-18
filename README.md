@@ -50,8 +50,8 @@ Note that although the Mileager.io API uses SQLite for development and testing, 
 ## Contributing changes
 
 - To simplify things the [GitHub Flow](https://guides.github.com/introduction/flow/index.html) Git workflow is used
-- Google's [HTML/CSS Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml) is followed
 - [bbatsov/ruby-style-guide](https://github.com/bbatsov/ruby-style-guide)
+- There is a [pre-commit](http://pre-commit.com) configuration file that will run Rubocop before you commit
 
 Hound will automatically check pull requests code style.
 
