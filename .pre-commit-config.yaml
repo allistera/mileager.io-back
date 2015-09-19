@@ -1,0 +1,4 @@
+-   repo: https://github.com/pricematch/mirrors-rubocop.git
+    sha: '86353ba8a2785fc8b955bf20d30138927d8f59cf'
+    hooks:
+    -   id: rubocop
