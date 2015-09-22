@@ -20,6 +20,11 @@ module V1
       assert_response :success
     end
 
+    test 'should get index as csv' do
+      get :index, format: :csv
+      assert_response :success
+    end
+
     test 'should get monthly' do
       get :monthly
       assert_response :success
@@ -31,12 +36,12 @@ module V1
     end
 
     test 'should create new mileage' do
-      post :index, mileage: { date: Time.now, amount: 100, user_id: @user.id }
+      post :index, mileage: { date: Time.now, amount: 100, user_id: @user.id }, format: :json
       assert_response :success
     end
 
     test 'should delete mileage' do
-      delete :index, id: Mileage.last.id
+      delete :index, id: Mileage.last.id, format: :json
       assert_response :success
     end
   end
