@@ -1,7 +1,7 @@
 ##
 # Mileage model
 #
-require 'CSV'
+require 'csv'
 
 class Mileage < ActiveRecord::Base
   belongs_to :user
