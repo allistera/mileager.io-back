@@ -1,6 +1,8 @@
 ##
 # Mileage model
 #
+require 'CSV'
+
 class Mileage < ActiveRecord::Base
   belongs_to :user
 
@@ -8,4 +10,16 @@ class Mileage < ActiveRecord::Base
                                                      less_than_or_equal_to:
                                                       50_000 }
   validates :date, date: true
+
+  def self.to_csv
+    attributes = %w{date amount}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |record|
+        csv << attributes.map{ |attr| record.send(attr) }
+      end
+    end
+  end
 end

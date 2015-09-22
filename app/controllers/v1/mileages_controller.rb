@@ -10,11 +10,15 @@ module V1
 
     before_action :populate_settings
 
-    respond_to :json
+    respond_to :json, :csv
 
     def index
-      render json:
-              Mileage.all.order('date desc').where(user_id: current_user.id)
+      mileages = Mileage.all.order('date desc').where(user_id: current_user.id)
+
+      respond_to do |format|
+        format.json { render json: mileages }
+        format.csv { render csv: mileages, filename: 'mileager_io_export' }
+      end
     end
 
     def graph_data
