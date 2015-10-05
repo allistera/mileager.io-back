@@ -18,6 +18,10 @@ module V1
       render json: User.find(current_user.id).update(settings_params)
     end
 
+    def delete_account
+      render json: User.find(current_user.id).destroy
+    end
+
     private
 
     def settings_params

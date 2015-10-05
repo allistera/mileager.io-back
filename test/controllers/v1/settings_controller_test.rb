@@ -33,5 +33,11 @@ module V1
       assert_equal '12500', user.yearly_mileage
       assert_equal '10', user.starting_mileage
     end
+
+    test 'should delete user account' do
+      assert_difference 'User.count', -1 do
+        put :delete_account
+      end
+    end
   end
 end
