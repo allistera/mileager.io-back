@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     get 'settings' => 'settings#index'
     post 'settings' => 'settings#update'
+    put 'settings/delete_account' => 'settings#delete_account'
   end
 
 end
