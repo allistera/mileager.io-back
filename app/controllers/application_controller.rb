@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_filter :authenticate_user_from_token!, except: ['index']
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   respond_to :json
 
   def index
@@ -11,6 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) do |u| 
+      u.permit(:password, :password_confirmation, :current_password) 
+    end
+  end
 
   def populate_settings
     settings = User.find_by_id(current_user.id)
