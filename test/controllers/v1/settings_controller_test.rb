@@ -39,5 +39,11 @@ module V1
         put :delete_account
       end
     end
+
+    test 'cant delete user account if not authenticated' do
+      @request.headers['Authorization'] = nil
+      put :delete_account, format: :json
+      assert_response :unauthorized
+    end
   end
 end
