@@ -6,6 +6,9 @@ module V1
   #
   class SettingsController < ApplicationController
     before_action :authenticate_user_from_token!
+    before_filter :authenticate_user!
+
+    respond_to :json
 
     def index
       render json: User.where(id: current_user.id).select("starting_date",
