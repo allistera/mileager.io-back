@@ -8,11 +8,11 @@ module V1
   # inputs and request types
   #
   class MileagesControllerTest < ActionController::TestCase
-    include Devise::TestHelpers
+    include Devise::Test::ControllerHelpers
 
     setup do
       @user = User.first
-      @request.headers["Authorization"] = %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}
+      @request.headers['Authorization'] = %(Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com")
     end
 
     test 'should get index' do

@@ -8,10 +8,10 @@ module V1
   # inputs and request types
   #
   class SettingsControllerTest < ActionController::TestCase
-    include Devise::TestHelpers
+    include Devise::Test::ControllerHelpers
 
     setup do
-      @request.headers["Authorization"] = %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}
+      @request.headers['Authorization'] = %(Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com")
     end
 
     test 'should get all settings' do

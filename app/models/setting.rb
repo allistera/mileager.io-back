@@ -16,14 +16,17 @@ class Setting < ActiveRecord::Base
   # validate data, this allows us to update if exists, or create if it doesn't.
   def self.update_setting(user_id, name, value)
     setting = Setting.where(name: name, user_id: user_id).limit(1).first
-    setting.present? ? setting.update(value: value) :
+    if setting.present
+      setting.update(value: value)
+    else
       setting = Setting.create(name: name, value: value, user_id: user_id)
+    end
     setting.valid?
   end
 
   def self.create_for_user(user_id)
     defaults = {
-      STARTING_MONTH: "01-" + Time.now.strftime("%m-%Y").to_s,
+      STARTING_MONTH: '01-' + Time.now.strftime('%m-%Y').to_s,
       YEARLY_MILEAGE: 10_000,
       STARTING_MILEAGE: 0,
       DURATION: 24
