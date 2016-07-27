@@ -10,13 +10,13 @@ module V1
   class MileageFlowsTest < ActionDispatch::IntegrationTest
     setup do
       @user = User.first
-      @auth_headers = {Authorization: %{Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com"}}
+      @auth_headers = { Authorization: %(Token token="eMWzxCSpqs8APQ1sbLhz", email="testuser1@user.com") }
     end
 
     test 'should get all mileage entries' do
       get '/v1/mileages', {}, @auth_headers
       assert_response :success
-      assert_equal JSON.parse(body)['mileages'].count, 5
+      assert_equal JSON.parse(body).count, 5
     end
 
     test 'should get monthly entries in correct format' do
@@ -35,7 +35,7 @@ module V1
       get '/v1/mileages/graph_data', {}, @auth_headers
       assert_response :success
 
-      parsed_response = JSON.parse(body)['mileages'].first
+      parsed_response = JSON.parse(body).first
 
       assert_equal 3, parsed_response.count
       assert_equal 'October', parsed_response['labels'].third

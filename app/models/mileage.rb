@@ -12,13 +12,13 @@ class Mileage < ActiveRecord::Base
   validates :date, date: true
 
   def self.to_csv
-    attributes = %w{date amount}
+    attributes = %w(date amount)
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
       all.each do |record|
-        csv << attributes.map{ |attr| record.send(attr) }
+        csv << attributes.map { |attr| record.send(attr) }
       end
     end
   end

@@ -26,12 +26,10 @@ module V1
         labels:
           MileageCalculator.labels(@starting_month),
         expected:
-          MileageCalculator.expected(@yearly_mileage,
-                                     @starting_mileage,
+          MileageCalculator.expected(@yearly_mileage, @starting_mileage,
                                      @duration.to_i),
         actual:
-          MileageCalculator.actual(current_user.id,
-                                   @duration.to_i,
+          MileageCalculator.actual(current_user.id, @duration.to_i,
                                    @starting_month)
       ]
     end
@@ -62,8 +60,5 @@ module V1
       render json: { actual: actual, expected: expected, labels: labels,
                      current_months_position: current_months_position }
     end
-
-
   end
-
 end

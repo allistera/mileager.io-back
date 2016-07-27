@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
@@ -33,7 +32,7 @@ gem 'omniauth'
 
 gem 'devise'
 gem 'date_validator'
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 gem 'raygun4ruby'
 
@@ -44,6 +43,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'awesome_print'
   gem 'letter_opener'
+  gem 'rubocop'
 end
 
 group :development do
@@ -51,8 +51,6 @@ group :development do
   gem 'web-console', '>= 3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-
 end
 
 group :production do

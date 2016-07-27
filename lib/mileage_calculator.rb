@@ -1,5 +1,4 @@
 class MileageCalculator
-
   def self.labels(date_from)
     date_from = date_from.to_datetime
     date_to    = date_from.to_time.advance(months: 11).to_date
@@ -14,7 +13,7 @@ class MileageCalculator
     current = starting_milage.to_i
     out = []
 
-    (term_length).times do
+    term_length.times do
       current += monthly_mileage
       out << current
     end
@@ -22,17 +21,19 @@ class MileageCalculator
     out
   end
 
+  # rubocop:disable AbcSize
   def self.actual(user_id, term_length, starting_date)
-    mileages = Mileage.where(user_id: user_id).order(:date).group_by { |mile| mile.date.end_of_month }
-
     results = ((starting_date.to_datetime)..starting_date.to_datetime +
               (term_length - 1).months).map { |d| [d.year, d.month] }.uniq
 
-    mileages.sort.each do |date, data|
-      pos = results.index([date.year, date.month])
-      results[pos] << data.last.amount
+    grouped_mileages(user_id).sort.each do |date, data|
+      results[results.index([date.year, date.month])] << data.last.amount
     end
 
     results.flat_map { |_, _, amount| amount || 0 }
+  end
+
+  def self.grouped_mileages(user_id)
+    Mileage.where(user_id: user_id).order(:date).group_by { |mile| mile.date.end_of_month }
   end
 end

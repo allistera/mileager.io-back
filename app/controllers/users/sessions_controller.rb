@@ -1,18 +1,17 @@
-class Users::SessionsController < Devise::SessionsController
+module Users
+  class SessionsController < Devise::SessionsController
+    skip_before_filter :verify_authenticity_token
 
-  skip_before_filter :verify_authenticity_token
-
-  # POST /resource/sign_in
-  def create
-    super do |user|
-      data = {
-        token: user.authentication_token,
-        email: user.email,
-        walkthrough: user.walkthrough
-      }
-      render json: data, status: 201 and return
-
+    # POST /resource/sign_in
+    def create
+      super do |user|
+        data = {
+          token: user.authentication_token,
+          email: user.email,
+          walkthrough: user.walkthrough
+        }
+        render(json: data, status: 201) && return
+      end
     end
   end
-
 end
